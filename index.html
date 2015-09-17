@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loja Virtual LGA : Projeto lojajs2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="formvalidation/dist/css/formValidation.min.css">
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Dosis:400,500,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<header>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+	  		<div class="navbar-header">
+	    		<button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse"><span class="glyphicon glyphicon-align-justify"></span>
+					<span class="sr-only">Toggle</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+	    		</button>
+	    		<a href="index.html" class="navbar-brand">
+	    			<span class="logo little"><i class="fa fa-coffee"></i> LGA</span>
+	    		</a>
+	  		</div>
+			<div class="collapse navbar-collapse">
+
+
+				<form class="navbar-form navbar-left search" role="search">
+			        <div class="form-group">
+			          	<input class="form-control search-text" placeholder="Search">
+			        </div>
+			        <button class="btn btn-info">
+						<i class="fa fa-search"></i>
+			        </button>
+			    </form>				
+
+				<div id="navCart" class="pull-right">
+
+				    <a href="#myModal" id="btn-contact" role="button" class="btn btn-primary" data-toggle="modal"><i class="fa fa-phone"></i><span class="badge badge-success">2</span>
+				    </a>
+
+					<div class="btn-group">
+						<button data-toggle="dropdown" data-hover="dropdown" data-delay="100" class="btn btn-wish dropdown-toggle showWish">
+							<span class="wishCount"></span> &rarr;
+							<i class="fa fa-heart"></i> <span class="caret">
+							</span>
+						</button>
+						<div role="menu" class="dropdown-menu wishMenu">
+							<table  id="wishContainer">
+								<thead>
+									<tr><td colspan="5">wish list</td></tr>
+								</thead>
+								<tbody></tbody>
+								<tfoot>
+									<tr>
+										<td colspan="5">
+											<button class="btn btn-danger btn-sm emptyWish pull-left">cancel</button>
+											<a class="btn btn-success btn-sm convertWish pull-right">convert</a>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div><!-- .btn-group -->
+					<div class="btn-group">
+						<button data-toggle="dropdown" data-hover="dropdown" data-delay="100" class="btn btn-cart dropdown-toggle showCart">
+							<span class="cartCount"></span> &rarr;
+							<i class="fa fa-shopping-cart"></i> = 
+							<span class="total"></span>
+							<span class="caret"></span>
+							
+						</button>
+						<div role="menu" class="dropdown-menu cartMenu">
+							<table class="table table-hover table-condensed table-striped" id="cartContainer">
+								<thead>
+									<tr>
+										<th colspan="5">cart list</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+								<tfoot>
+									<tr>
+										<td colspan="5">
+											<span class="pull-right">SubT 
+												<span class="subtotal"></span>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="5">
+											<span class="pull-right">frete 
+												<span class="frete"></span>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="5">
+											<span class="pull-right">TOT 
+												<span class="total"></span>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="5">
+											<button class="btn btn-danger btn-sm emptyCart pull-left">cancel</button>
+											<a href="#" class="btn btn-outline-inverse btn-success btn-sm link-cart pull-right">cart</button>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div><!-- .cartMenu -->
+					</div><!-- .btn-group -->
+				</div><!-- #navCart -->
+			</div><!-- #bs-example-navbar-collapse-6 -->
+		</div><!-- .container -->
+	</nav>
+</header>
+
+
+
+
+<main>
+	<div class="container">
+		<div class="row produtos" id="inicio-home">
+
+		</div><!-- inicio-home -->
+
+
+
+		<div class="row" id="inicio-cart"><!-- ####### inicio ######## -->
+			<div class="col-md-3 col-sm-3">
+				<i class="fa fa-quote-left fa-2x fa-pull-left fa-border"></i>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum iure, quaerat necessitatibus aspernatur tempilis, 
+				<i class="fa fa-refresh fa-spin"></i>
+				<i class="fa fa-cog fa-spin"></i>
+				<br><br>
+
+				<div class="cartMenu">
+					<table class="table table-hover table-condensed table-striped" id="cartLateral">
+						<thead>
+							<tr>
+								<th colspan="5">cart list</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+						<tfoot>
+							<tr>
+								<td colspan="5">
+									<span class="pull-right">SubT 
+										<span class="subtotal"></span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5">
+									<span class="pull-right">frete 
+										<span class="frete"></span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5">
+									<span class="pull-right">TOT 
+										<span class="total"></span>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5">
+									<button class="btn btn-danger btn-sm emptyCart pull-left">cancel</button>
+									<a href="carrinho.html" class="btn btn-success btn-sm showCart pull-right">cart</button>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+
+			</div><!-- .col-md-3 parte esquerda -->
+			<div class="col-md-9 col-sm-9">
+
+				<div class="progress">
+				  	<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+				    60%
+				  	</div>
+				</div>
+
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default">
+					    <div class="panel-heading" role="tab" id="carrinho-head">
+					      	<h4 class="panel-title">
+						        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#carrinho-accordion" aria-expanded="true" aria-controls="carrinho-accordion">
+						          Carrinho
+						        </a>
+					      	</h4>
+					    </div>
+				    	<div id="carrinho-accordion" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="carrinho-head">
+				      		<div class="panel-body">
+								
+								<div class="cartMenu cartPrincipal">
+									<table class="table table-hover table-condensed table-striped" id="cartPrincipal">
+										<thead>
+											<tr>
+												<th colspan="5">cart list</th>
+											</tr>
+										</thead>
+										<tbody></tbody>
+										<tfoot>
+											<tr>
+												<td colspan="5">
+													<span class="pull-right">SubT 
+														<span class="subtotal"></span>
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="5">
+													<span class="pull-right">frete 
+														<span class="frete"></span>
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="5">
+													<span class="pull-right">TOT 
+														<span class="total"></span>
+													</span>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="5">
+													<button class="btn btn-danger btn-sm emptyCart pull-left">cancel</button>
+													<a href="carrinho.html" class="btn btn-success btn-sm showCart pull-right">cart</button>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+				      		</div><!-- panel-body -->
+				    	</div><!-- #carrinho-accordion -->
+				  	</div><!-- .panel-default -->
+				  	
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="autentica-head">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#autenticacao" aria-expanded="false" aria-controls="autenticacao">Autenticação
+				        		</a>
+				      		</h4>
+				    	</div>
+				    	<div id="autenticacao" class="panel-collapse collapse" role="tabpanel" aria-labelledby="autentica-head">
+				      		<div class="panel-body">
+								<div class="row">
+									<div id="areaLogin" class="col-md-7 col-sm-7">
+										<div class="panel panel-primary">
+											<div class="panel-heading">Autenticação</div>
+								  			<div class="panel-body">
+												<form id="signinForm" class="form-horizontal" role="form">
+											        <fieldset>
+											          	<legend>Autenticação</legend>
+													    <div class="form-group">
+													        <label class="col-xs-2 control-label">Email</label>
+													        <div class="col-xs-8">
+													        	<input type="text" class="form-control" id="email" name="email" placeholder="email">
+													        </div>
+													    </div>
+													    <div class="form-group">
+													        <label class="col-xs-2 control-label" for="password">Senha</label>
+													        <div class="col-xs-8">
+													        	<input type="password" class="form-control" name="senha" id="senha">
+													        </div>
+													    </div>
+													    <div class="form-group">
+													        <label class="col-xs-2 control-label" for="password">lembrar</label>
+													        <div class="col-xs-4">
+													        	<input type="checkbox" class="" name="lembrar">
+													        </div>
+													    </div>
+
+														<div class="form-group">
+													        <label class="col-xs-2 control-label">Captcha</label>
+													        <div class="col-xs-8">
+													            <div id="captchaContainer"></div>
+													        </div>
+													    </div>													    
+													    <div class="form-group">
+													        <div class="col-xs-4 col-xs-offset-2">
+													        	<button class="btn-lg  btn btn-success">Login</button>
+													        </div>
+													    </div>
+													</fieldset>
+												</form>			
+								  			</div>
+								  		</div>	
+									</div><!-- col-md-7 -->
+									<div id="areaEsqueci" class="col-md-5 col-sm-5">
+										<div class="panel panel-primary">
+											<div class="panel-heading">Suporte</div>
+										  	<div class="panel-body">
+												<a class="btn btn-info">esqueci</a> 
+
+												<a class="btn btn-danger">excluir</a> 
+										  	</div>
+										</div>
+									</div><!-- col-md-6 -->
+								</div><!-- row -->       
+						    </div><!-- .panel-body -->
+				    	</div><!-- #autenticacao -->
+				  	</div><!-- .panel-default -->
+				  
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="novo-cadastro-head">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#novo-cadastro" aria-expanded="false" aria-controls="novo-cadastro">Formulario de Cadastro</a>
+				      		</h4>
+				    	</div>
+				    	<div id="novo-cadastro" class="panel-collapse collapse" role="tabpanel" aria-labelledby="novo-cadastro-head">
+				      		<div class="panel-body">
+
+								<ul id="menu-tab-cadastro" class="nav nav-tabs" role="tablist">
+							      	<li role="presentation" class="active">
+							      		<a href="#endereco" id="endereco-tab" role="tab" data-toggle="tab" aria-controls="endereco" aria-expanded="false">Endereço</a>
+							      	</li>
+							      
+							      	<li role="presentation" class="">
+							      		<a href="#canais" role="tab" id="canais-tab" data-toggle="tab" aria-controls="canais" aria-expanded="false">Canais</a>
+							      	</li>
+
+							      	<li role="presentation" class="dropdown">
+							        	<a href="#" id="tipo-cliente-pf-pj" class="dropdown-toggle" data-toggle="dropdown" aria-controls="tipo-cliente" aria-expanded="false">Cliente <span class="caret"></span>
+							        	</a>
+							        	<ul class="dropdown-menu" aria-labelledby="tipo-cliente-pf-pj" id="tipo-cliente">
+							          		<li>
+							          			<a href="#cliente-pf" role="tab" id="cliente-pf-tab" data-toggle="tab" aria-controls="cliente-pf" aria-expanded="false">PF</a>
+							          		</li>
+							          		<li>
+							          			<a href="#cliente-pj" role="tab" id="cliente-pj-tab" data-toggle="tab" aria-controls="cliente-pj" aria-expanded="false">PJ</a>
+							          		</li>
+							        	</ul>
+							      	</li>
+
+							      	<li role="presentation" class="">
+							      		<a href="#privacidade" role="tab" id="privacidade-tab" data-toggle="tab" aria-controls="canais" aria-expanded="false">Privacidade</a>
+							      	</li>
+
+							    </ul><!-- #menu-tab-cadastro -->	
+
+								<div id="conteudo-tab" class="tab-content">
+							      	<div role="tabpanel" class="tab-pane fade active in" id="endereco" aria-labelledby="endereco-tab">
+
+										<form id="enderecoForm" class="form-horizontal" role="form">
+									        <fieldset>
+									          	<legend>Endereco de Cobranca</legend>
+										    	<div class="form-group">
+										        	<label class="col-xs-2 control-label">CEP</label>
+										        	<div class="col-xs-4">
+										            	<input type="text" class="input-lg form-control" name="cep" />
+										        	</div>
+										        	<div class="col-xs-6">
+										            	<p>
+										            		<a id="correios" class="link" href="#">Correios</a>
+										            		<a id="geoip" class="link" href="#">GeoIP</a>
+										            		<a id="geohtml5" class="link" href="#">GeoHTML5</a>
+										            		<a id="googlemaps" class="link" href="#">GoogleMaps</a>
+										            		  
+										            	</p>
+										        	</div>
+										    	</div>
+
+												<div class="form-group">
+										        	<label class="col-xs-2 control-label">End</label>
+										        	<div class="col-xs-6">
+										            	<input type="text" class="form-control" name="endereco">
+										        	</div>
+													<label class="col-xs-1 control-label">Num</label>		        
+										        	<div class="col-xs-2">
+										            	<input type="text" class="form-control" name="num">
+										        	</div>
+										    	</div>
+
+										    	<div class="form-group">
+										        	<label class="col-xs-2 control-label">Bairro</label>
+										        	<div class="col-xs-6">
+										            	<input type="text" class="form-control" name="bairro" />
+										        	</div>
+										    	</div>
+
+										    	<div class="form-group">
+										        	<label class="col-xs-2 control-label">Cidade</label>
+										        	<div class="col-xs-6">
+										            	<input type="text" class="form-control" name="cidade" />
+										        	</div>
+										    	</div>
+
+										    	<div class="form-group">
+								                	<label class="col-xs-2 control-label">Estado</label>
+									        		<div class="col-xs-6">
+											            <select class="form-control select select-primary" name="estado">
+										                    <option value="">Selecione</option>
+										                    <option value="BA">Bahia</option>
+										                    <option value="SP">Sao Paulo</option>
+										                    <option value="RJ">Rio de Janeiro</option>
+										                    <option value="CE">Ceara</option>
+									                	</select>
+								    		        </div>
+								           		</div>
+
+										    	<div class="form-group">
+										        	<div class="col-xs-8 col-xs-offset-2">
+										            	<button type="submit" class="btn btn-primary">Submit</button>
+										        	</div>
+										    	</div>
+
+											</fieldset>
+										</form>
+								    
+								    </div><!-- endereco -->
+
+								    <div role="tabpanel" class="tab-pane fade active" id="canais" aria-labelledby="canais-tab">
+										<form id="canaisContato" method="post" class="form-horizontal">
+									        <fieldset>
+									         	<legend>Canais de Contato</legend>
+												<div class="form-group">
+											        <label class="col-xs-3 control-label">Site</label>
+											        <div class="col-xs-5">
+											            <input type="text" class="form-control" name="site" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <label class="col-xs-3 control-label">Tel</label>
+											        <div class="col-xs-5">
+											            <input type="text" class="form-control" name="tels[]" />
+											        </div>
+											        <div class="col-xs-4">
+											            <button type="button" class="btn btn-default addButtonTel">
+											            	<i class="fa fa-plus"></i>
+											            </button>
+											        </div>
+											    </div>
+											    <div class="form-group hide" id="telsTemplate">
+													<label class="col-xs-3 control-label">Tel</label>					
+											        <div class="col-xs-5">
+											            <input class="form-control" type="text" name="tels[]" />
+											        </div>
+											        <div class="col-xs-4">
+											            <button type="button" class="btn btn-default removeButton">
+											            	<i class="fa fa-minus"></i>
+											            </button>
+											        </div>
+											    </div>
+									    
+											    <div class="form-group group-emails">
+											        <label class="col-xs-3 control-label">Email</label>
+											        <div class="col-xs-5">
+											            <input type="text" class="form-control" name="emails[]" />
+											        </div>
+											        <div class="col-xs-4">
+											            <button type="button" class="btn btn-default addButtonEmail">
+											            	<i class="fa fa-plus"></i>
+											            </button>
+											        </div>
+											    </div>
+											    
+											    <div class="form-group hide" id="emailsTemplate">
+													<label class="col-xs-3 control-label">Email</label>					
+											        <div class="col-xs-5">
+											            <input class="form-control" type="text" name="emails[]" />
+											        </div>
+											        <div class="col-xs-4">
+											            <button type="button" class="btn btn-default removeButton">
+											            	<i class="fa fa-minus"></i>
+											            </button>
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <div class="col-xs-5 col-xs-offset-3">
+											            <button type="submit" class="btn btn-info">Validate</button>
+											        </div>
+											    </div>
+									        </fieldset>
+								      	</form>
+
+						    		</div><!-- canais -->
+								    <div role="tabpanel" class="tab-pane fade" id="cliente-pf" aria-labelledby="cliente-pf-tab">
+										<form id="pessoaFisicaForm" class="form-horizontal" role="form">
+								        	<fieldset>
+									          	<legend>Pessoa Fisica</legend>
+											    
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">Nome</label>
+											        <div class="col-xs-8">
+											            <input type="text" class="form-control" name="nome" />
+											        </div>
+											    </div>
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">Sexo</label>
+											        <div class="col-xs-6">
+											            <label class="radio-inline">
+											                <input type="radio" name="sexo" value="M" /> M
+											            </label>
+											            <label class="radio-inline">
+											                <input type="radio" name="sexo" value="F" /> F
+											            </label>
+											        </div>
+											    </div>		    
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">CPF</label>
+											        <div class="col-xs-6">
+											            <input type="text" class="form-control" name="cpf" />
+											        </div>
+											    </div>
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">RG</label>
+											        <div class="col-xs-6">
+											            <input type="text" class="form-control" name="rg" />
+											        </div>
+											    </div>
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">Data Nasc</label>
+											        <div class="col-xs-6">
+											            <input type="date" class="form-control" name="nascimento" />
+											        </div>
+											    </div>
+											   
+											    <div class="form-group">
+											        <div class="col-xs-8 col-xs-offset-2">
+											            <button type="submit" class="btn btn-primary">Submit</button>
+											        </div>
+											    </div>
+											</fieldset>
+										</form>
+								    </div><!-- cliente-pf -->
+									
+								    <div role="tabpanel" class="tab-pane fade" id="cliente-pj" aria-labelledby="cliente-pj-tab">
+										<form id="pessoaJuridicaForm" class="form-horizontal" role="form">
+								        	<fieldset>
+									          	<legend>Pessoa Juridica</legend>
+											    
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">Nome</label>
+											        <div class="col-xs-8">
+											            <input type="text" class="form-control" name="nome" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">CNPJ</label>
+											        <div class="col-xs-6">
+											            <input type="text" class="form-control" name="cnpj" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">IE</label>
+											        <div class="col-xs-6">
+											            <input type="text" class="form-control" name="ie" />
+											        </div>
+											        <div class="col-xs-2">
+											            <input type="checkbox" name="isenta" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <label class="col-xs-2 control-label">Data Abert</label>
+											        <div class="col-xs-6">
+											            <input type="date" class="form-control" name="abertura" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <div class="col-xs-8 col-xs-offset-2">
+											            <button type="submit" class="btn btn-primary">Submit</button>
+											        </div>
+											    </div>
+											</fieldset>
+										</form>
+								    </div><!-- cliente-pj -->
+
+								    <div role="tabpanel" class="tab-pane fade" id="privacidade" aria-labelledby="privacidade-tab">
+										<form id="privacidadeForm" class="form-horizontal">
+											<fieldset>
+												<legend>Privacidade</legend>
+											    <div class="form-group">
+											        <label class="col-xs-3 control-label">Password</label>
+											        <div class="col-xs-5">
+											            <input type="password" class="form-control" name="password" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <label class="col-xs-3 control-label">Confirm password</label>
+											        <div class="col-xs-5">
+											            <input type="password" class="form-control" name="confirmPassword" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <div class="col-xs-6 col-xs-offset-3">
+											            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#termsModal">Agree ?</button>
+											            <input type="hidden" name="agree" value="no" />
+											        </div>
+											    </div>
+
+											    <div class="form-group">
+											        <div class="col-xs-9 col-xs-offset-3">
+											            <button class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+											        </div>
+											    </div>
+											</fieldset>
+										</form>
+			    					</div><!-- privacidade -->
+								</div><!-- #conteudo-tab -->
+							</div><!-- .panel-body -->
+						</div><!-- #novo-cadastro -->
+					</div><!-- .panel-default -->
+
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="heading4">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#forma-pagamento" aria-expanded="false" aria-controls="forma-pagamento">Forma de pagamento
+								</a>
+							</h4>
+						</div>
+						<div id="forma-pagamento" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+							<div class="panel-body">
+
+								<div class="row">
+									<div class="col-md-3 col-sm-3">
+										<div class="panel panel-primary">
+											<div class="panel-heading">PagSeguro</div>
+												<div class="panel-body">
+													<p>Pague com PagSeguro</p>
+													<button id="pagseguro" class="btn btn-lg btn-success">Pagar</button>
+												</div>
+											</div>
+										</div>
+
+									<div class="col-md-3 col-sm-3">
+										<div class="panel panel-success">
+											<div class="panel-heading">BCash</div>
+											<div class="panel-body">
+												<p>Pague com BCash</p>
+													<button id="bcash" class="btn btn-lg btn-success">Pagar</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-3 col-sm-3">
+										<div class="panel panel-info">
+											<div class="panel-heading">PayPal</div>
+											<div class="panel-body">
+												<p>Pague com PayPal</p> 
+													<button id="paypal" class="btn btn-lg btn-success">Pagar</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-3 col-sm-3">
+										<div class="panel panel-warning">
+											<div class="panel-heading">Dinheiro</div>
+											<div class="panel-body">
+												<p>Pague com Dinheiro</p> 
+													<button id="dinheiro" class="btn btn-lg btn-success">Pagar</button>
+											</div>
+										</div>
+									</div>
+								</div><!-- .row -->
+							</div><!-- .panel-body -->
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="heading5">
+							<h4 class="panel-title">
+								<a id="msg-ped-fechado" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pedido-fechado" aria-expanded="false" aria-controls="pedido-fechado">#
+								</a>
+							</h4>
+						</div>
+						<div id="pedido-fechado" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+							<div class="panel-body">
+								<div class="jumbotron">
+									<!--
+									<h1>Concluido com sucesso</h1>
+									<p id="msg-jumbotron">
+									</p>
+									-->
+									<p>
+										<a class="btn btn-primary btn-lg" 
+									href="#" role="button">Status do Pedido</a>
+									</p>
+								</div>
+							</div>
+						</div><!-- pedido-fechado -->
+					</div><!-- panel-default -->
+					
+				</div><!-- #accordion -->
+			</div><!-- col-md-9 -->
+		</div><!-- #inicio-cart -->
+
+	</div><!-- container -->
+</main>
+
+
+<div id="modalDetalhes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3></h3>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>LGA - Formulario de Contato</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal col-sm-12">
+          <div class="form-group">
+          	<label>Name</label>
+          	<input class="form-control" placeholder="Your name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters." type="text">
+          </div>
+          <div class="form-group">
+          	<label>Message</label>
+          	<textarea class="form-control" placeholder="Your message here..." data-placement="top" data-trigger="manual">
+          	</textarea>
+          </div>
+          <div class="form-group">
+          	<label>E-Mail</label>
+          	<input class="form-control" placeholder="email@you.com" data-placement="top" data-trigger="manual" data-content="Must be a valid e-mail address (user@gmail.com)" type="text">
+          </div>
+          <div class="form-group">
+          	<label>Phone</label>
+          	<input class="form-control" placeholder="999-999-9999" data-placement="top" data-trigger="manual" data-content="Must be a valid phone number (999-999-999)" type="text">
+          </div>
+          <div class="form-group">
+          	<a type="submit" class="btn btn-success pull-left">Enviar</a> 
+          	<i class="help-block pull-right text-danger hide">&nbsp; The form is not valid. </i>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<footer>
+ 	<div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <h3>Location</h3>
+                <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <h3>Around the Web</h3>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <h3>About Freelancer</h3>
+                <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+            </div>
+	    	<p class="col-md-12 text-center">Copyright &copy; Your Website 2014</p>
+    	</div>
+   	</div>
+</footer>
+</body>
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+-->
+<script src="formvalidation/dist/js/formValidation.min.js"></script>
+<script src="formvalidation/dist/js/framework/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.cart.js"></script>
+
+</html>
